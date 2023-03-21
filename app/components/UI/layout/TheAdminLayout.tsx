@@ -6,7 +6,7 @@ interface Props {
 
 const TheAdminLayout = (props: Props) => {
   return (
-    <div className="pt-4 pl-4 pr-4 relative bg-white">
+    <div className="pl-4 pr-4 relative bg-white">
       {/* Navigation */}
       <TheAdminNavigation />
       {/* Main page content */}
