@@ -31,7 +31,6 @@ export default function Index() {
 
   const { products } = useLoaderData<typeof loader>();
   return (
-    // bg-hero-image bg-no-repeat bg-cover w-full h-96
     <ThePrimaryLayout>
       <>
         <header className="flex items-center justify-center bg-hero-image bg-no-repeat bg-cover w-full h-[500px] relative rounded">
