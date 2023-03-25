@@ -1,5 +1,5 @@
+import AppBanner from '~/components/UI/banner/AppBanner';
 import TheAdminHeader from './TheAdminHeader';
-import TheAdminNavigation from './TheAdminHeader';
 import TheAdminSidebar from './TheAdminSidebar';
 
 interface Props {
@@ -10,6 +10,10 @@ const TheAdminLayout = (props: Props) => {
   return (
     <div className="relative bg-white">
       {/* Header */}
+      <AppBanner>
+        We only keep the data for demo purposes. So changes might not show up or
+        be deleted with time.
+      </AppBanner>
       <TheAdminHeader />
       {/* Sidebar */}
       <TheAdminSidebar />

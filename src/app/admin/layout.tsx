@@ -5,5 +5,9 @@ export default function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <TheAdminLayout>{children} </TheAdminLayout>;
+  return (
+    <div>
+      <TheAdminLayout>{children} </TheAdminLayout>
+    </div>
+  );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import ProductsTable from './ProductsTable';
 
 export const metadata: Metadata = {
   title: 'Products - My Cosmetics',
@@ -6,8 +7,10 @@ export const metadata: Metadata = {
 
 export default function Products() {
   return (
-    <>
-      <h1>Hello</h1>
-    </>
+    <div className="space-y-16">
+      <h1 className="mb-8 font-bold text-4xl">Products</h1>
+
+      <ProductsTable />
+    </div>
   );
 }
