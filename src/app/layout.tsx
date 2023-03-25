@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/react';
 
 import '~/styles/globals.css';
 
@@ -21,6 +22,7 @@ export default function RootLayout({
         className={`antialiased min-h-screen relative text-lg text-gray-100 ${inter.className}`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
