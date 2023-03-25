@@ -1,7 +1,4 @@
 # fly.toml file generated for my-cosmetics on 2023-03-21T23:02:15Z
-the ancient sovereign of eternity
-i am the fated villain
-martial peak
 
 app = "my-cosmetics"
 kill_signal = "SIGINT"

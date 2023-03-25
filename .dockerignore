@@ -2,11 +2,7 @@ fly.toml
 Dockerfile
 .dockerignore
 node_modules
+npm-debug.log
+README.md
+.next
 .git
-
-*.log
-.DS_Store
-.env
-.cache
-public/build
-build
