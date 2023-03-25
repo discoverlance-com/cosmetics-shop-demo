@@ -1,4 +1,6 @@
-import TheAdminNavigation from "./TheAdminNavigation";
+import TheAdminHeader from './TheAdminHeader';
+import TheAdminNavigation from './TheAdminHeader';
+import TheAdminSidebar from './TheAdminSidebar';
 
 interface Props {
   children: React.ReactNode;
@@ -6,12 +8,14 @@ interface Props {
 
 const TheAdminLayout = (props: Props) => {
   return (
-    <div className="pl-4 pr-4 relative bg-white">
-      {/* Navigation */}
-      <TheAdminNavigation />
+    <div className="relative bg-white">
+      {/* Header */}
+      <TheAdminHeader />
+      {/* Sidebar */}
+      <TheAdminSidebar />
       {/* Main page content */}
-      <main className="max-w-7xl mx-auto pb-16 text-gray-700">
-        {props.children}
+      <main className="p-4 sm:ml-64 text-gray-700">
+        <div className="p-4 mt-14">{props.children}</div>
       </main>
     </div>
   );
