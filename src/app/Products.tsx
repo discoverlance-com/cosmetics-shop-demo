@@ -8,7 +8,12 @@ const Products = async () => {
   return (
     <div className="mt-16 w-full relative">
       <h2 className="text-4xl font-bold mb-8">Our Products</h2>
-      <ProductsList products={products} />
+      <ProductsList
+        products={products.map((product) => ({
+          ...product,
+          price: product.price.toString(),
+        }))}
+      />
 
       <div className="mt-16 flex">
         <AppButton>Load More</AppButton>

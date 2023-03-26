@@ -19,7 +19,9 @@ const cardVariants: Variants = {
   },
 };
 
-type ProductData = Pick<Product, 'name' | 'image' | 'summary' | 'price'>;
+type ProductData = Pick<Product, 'name' | 'image' | 'summary'> & {
+  price: string;
+};
 
 interface Props extends ProductData {}
 
@@ -46,9 +48,7 @@ const ProductItem = (props: Props) => {
           </div>
           <p className="border p-2 border-blue-500 mt-4">
             <span className="block">{props.summary}</span>
-            <span className="block font-bold text-xl">
-              US$ {props.price.toString()}{' '}
-            </span>
+            <span className="block font-bold text-xl">US$ {props.price}</span>
           </p>
 
           <div className="mt-4">
