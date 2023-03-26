@@ -34,7 +34,9 @@ type ProductData = Omit<
   price: string;
 };
 
-interface Props extends ProductData {}
+interface Props {
+  product: ProductData;
+}
 
 const ProductItem = (props: Props) => {
   return (
@@ -45,12 +47,12 @@ const ProductItem = (props: Props) => {
         viewport={{ once: true, amount: 0.2 }}
       >
         <m.div variants={cardVariants} className="border-blue-600 border-8 p-4">
-          <h3 className="font-bold text-3xl">{props.name}</h3>
+          <h3 className="font-bold text-3xl">{props.product.name}</h3>
           <div>
-            {props.image && (
+            {props.product.image && (
               <Image
-                src={props.image}
-                alt={`${props.name} product`}
+                src={props.product.image}
+                alt={`${props.product.name} product`}
                 className="w-full object-cover object-center mt-8 h-64 aspect-auto"
                 width={1280}
                 height={256}
@@ -58,12 +60,14 @@ const ProductItem = (props: Props) => {
             )}
           </div>
           <p className="border p-2 border-blue-500 mt-4">
-            <span className="block">{props.summary}</span>
-            <span className="block font-bold text-xl">US$ {props.price}</span>
+            <span className="block">{props.product.summary}</span>
+            <span className="block font-bold text-xl">
+              US$ {props.product.price}
+            </span>
           </p>
 
           <div className="mt-4">
-            <AppModal title={`Order ${props.name}`} trigger="Order">
+            <AppModal title={`Order ${props.product.name}`} trigger="Order">
               <p>Thanks for ordering</p>
             </AppModal>
           </div>

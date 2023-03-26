@@ -19,10 +19,12 @@ const ProductsList = (props: Props) => {
         props.products.map((product) => (
           <li key={product.slug}>
             <ProductItem
-              name={product.name}
-              summary={product.summary}
-              price={product.price}
-              image={product.image}
+              product={{
+                name: product.name,
+                summary: product.summary,
+                price: product.price,
+                image: product.image,
+              }}
             />
           </li>
         ))
