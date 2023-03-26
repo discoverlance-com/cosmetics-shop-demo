@@ -58,8 +58,9 @@ const ProductsTable = async () => {
                       <Image
                         alt={product.name}
                         src={product?.image}
-                        height={20}
-                        width={20}
+                        height={100}
+                        width={100}
+                        className="object-center"
                       />
                     )}
                   </td>

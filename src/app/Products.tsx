@@ -1,14 +1,9 @@
 import AppButton from '~/components/UI/button/AppButton';
-import productsJson from './products.json';
 import ProductsList from './ProductsList';
-
-const getProducts = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 4000));
-  return productsJson;
-};
+import { getAllProducts } from '~/lib/products/products';
 
 const Products = async () => {
-  const products = await getProducts();
+  const products = await getAllProducts();
 
   return (
     <div className="mt-16 w-full relative">
