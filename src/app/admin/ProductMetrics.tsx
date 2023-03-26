@@ -1,35 +1,10 @@
 'use client';
 
+import type { Product } from '@prisma/client';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-
-export const data = {
-  labels: [
-    'Product 1',
-    'Product 2',
-    'Product 3',
-    'Product 4',
-    'Product 5',
-    'Product 6',
-  ],
-  datasets: [
-    {
-      label: '# of Products',
-      data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-      ],
-      borderWidth: 1,
-    },
-  ],
-};
 
 const options = {
   responsive: true,
@@ -44,11 +19,24 @@ const options = {
   },
 };
 
-const ProductMetrics = () => {
+interface Props {
+  products: Omit<Product, 'updatedAt' | 'createdAt' | 'category_id' | 'id'>[];
+}
+
+const ProductMetrics = (props: Props) => {
+  const datasets = [
+    {
+      label: '# of Products',
+      data: props.products.map((product) => product.quantity),
+      backgroundColor: props.products.map((product) => product.color),
+      borderWidth: 1,
+    },
+  ];
+  const labels = props.products.map((product) => product.name);
   return (
-    <div className="grid md:grid-cols-2 gap-8">
-      <div>
-        <Pie height={200} data={data} options={options} />
+    <div className="grid md:grid-cols-3 gap-8 min-h-[200px]">
+      <div className="md:col-span-2">
+        <Pie height={200} data={{ datasets, labels }} options={options} />
       </div>
     </div>
   );

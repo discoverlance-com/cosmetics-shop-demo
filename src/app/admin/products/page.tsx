@@ -10,6 +10,7 @@ export default function Products() {
     <div className="space-y-16">
       <h1 className="mb-8 font-bold text-4xl">Products</h1>
 
+      {/* @ts-expect-error Server component  */}
       <ProductsTable />
     </div>
   );

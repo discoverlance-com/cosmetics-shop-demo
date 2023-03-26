@@ -1,6 +1,6 @@
 'use client';
 
-import { DashboardIcon } from '@radix-ui/react-icons';
+import { DashboardIcon, BackpackIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -68,6 +68,31 @@ const TheAdminSidebar = () => {
                 }`}
               >
                 Products
+              </span>
+            </Link>
+          </li>
+          <li className="group ml-4">
+            <Link
+              href="/admin/products/categories"
+              className={`flex items-center p-2 text-gray-100 rounded-lg hover:bg-gray-100 ${
+                pathname === '/admin/products/categories' ? 'bg-gray-100' : ''
+              }`}
+            >
+              <BackpackIcon
+                className={`w-6 h-6 transition duration-75 group-hover:text-gray-400 ${
+                  pathname === '/admin/products/categories'
+                    ? 'text-gray-400 '
+                    : 'text-white'
+                }`}
+              />
+              <span
+                className={`ml-3 group-hover:text-gray-800 ${
+                  pathname === '/admin/products/categories'
+                    ? 'text-gray-800'
+                    : 'text-gray-100'
+                }`}
+              >
+                Categories
               </span>
             </Link>
           </li>

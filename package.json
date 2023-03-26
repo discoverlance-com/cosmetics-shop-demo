@@ -8,11 +8,11 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{js,ts,tsx,md}\"",
-    "migrate:dev": "prisma db push",
-    "migrate:prod": "prisma migrate deploy"
+    "migrate": "prisma db push"
   },
   "prisma": {
-    "schema": "./src/prisma/schema.prisma"
+    "schema": "./src/prisma/schema.prisma",
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} src/prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "4.11.0",
@@ -36,10 +36,12 @@
     "usehooks-ts": "2.9.1"
   },
   "devDependencies": {
+    "@faker-js/faker": "7.6.0",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "prettier": "^2.8.7",
     "prettier-plugin-tailwindcss": "^0.2.5",
-    "tailwindcss": "^3.2.7"
+    "tailwindcss": "^3.2.7",
+    "ts-node": "10.9.1"
   }
 }

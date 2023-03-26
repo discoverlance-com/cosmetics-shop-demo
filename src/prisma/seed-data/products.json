@@ -1,0 +1,262 @@
+[
+  {
+    "name": "Beauty",
+    "slug": "beauty",
+    "products": [
+      {
+        "name": "Bespoke Soft Computer",
+        "slug": "bespoke-soft-computer",
+        "color": "#c0af8d",
+        "image": "https://loremflickr.com/1280/300/fashion?lock=17170",
+        "quantity": 9,
+        "price": "201.00",
+        "summary": "Handmade",
+        "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive"
+      },
+      {
+        "name": "Luxurious Steel Chips",
+        "slug": "luxurious-steel-chips",
+        "color": "#b6f7ae",
+        "image": "https://loremflickr.com/1280/300/fashion?lock=69897",
+        "quantity": 3,
+        "price": "532.00",
+        "summary": "Bespoke",
+        "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients"
+      }
+    ]
+  },
+  {
+    "name": "Industrial",
+    "slug": "industrial",
+    "products": [
+      {
+        "name": "Gorgeous Plastic Hat",
+        "slug": "gorgeous-plastic-hat",
+        "color": "#fffbcc",
+        "image": "https://loremflickr.com/1280/300/fashion?lock=56268",
+        "quantity": 9,
+        "price": "577.00",
+        "summary": "Recycled",
+        "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016"
+      },
+      {
+        "name": "Awesome Metal Tuna",
+        "slug": "awesome-metal-tuna",
+        "color": "#71feed",
+        "image": "https://loremflickr.com/1280/300/fashion?lock=88013",
+        "quantity": 5,
+        "price": "805.00",
+        "summary": "Tasty",
+        "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals"
+      }
+    ]
+  },
+  {
+    "name": "Tools",
+    "slug": "tools",
+    "products": [
+      {
+        "name": "Licensed Soft Mouse",
+        "slug": "licensed-soft-mouse",
+        "color": "#ccda7b",
+        "image": "https://loremflickr.com/1280/300/fashion?lock=66526",
+        "quantity": 9,
+        "price": "354.00",
+        "summary": "Handmade",
+        "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles"
+      },
+      {
+        "name": "Sleek Steel Chips",
+        "slug": "sleek-steel-chips",
+        "color": "#0ad89e",
+        "image": "https://loremflickr.com/1280/300/fashion?lock=60227",
+        "quantity": 2,
+        "price": "851.00",
+        "summary": "Handmade",
+        "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles"
+      }
+    ]
+  },
+  {
+    "name": "Automotive",
+    "slug": "automotive",
+    "products": [
+      {
+        "name": "Elegant Cotton Cheese",
+        "slug": "elegant-cotton-cheese",
+        "color": "#b4dc11",
+        "image": "https://loremflickr.com/1280/300/fashion?lock=74484",
+        "quantity": 8,
+        "price": "892.00",
+        "summary": "Generic",
+        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J"
+      },
+      {
+        "name": "Incredible Bronze Tuna",
+        "slug": "incredible-bronze-tuna",
+        "color": "#1ce67b",
+        "image": "https://loremflickr.com/1280/300/fashion?lock=57778",
+        "quantity": 7,
+        "price": "812.00",
+        "summary": "Incredible",
+        "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit"
+      }
+    ]
+  },
+  {
+    "name": "Baby",
+    "slug": "baby",
+    "products": [
+      {
+        "name": "Elegant Fresh Shoes",
+        "slug": "elegant-fresh-shoes",
+        "color": "#892692",
+        "image": "https://loremflickr.com/1280/300/fashion?lock=84941",
+        "quantity": 8,
+        "price": "65.00",
+        "summary": "Refined",
+        "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive"
+      },
+      {
+        "name": "Tasty Metal Soap",
+        "slug": "tasty-metal-soap",
+        "color": "#a54038",
+        "image": "https://loremflickr.com/1280/300/fashion?lock=56874",
+        "quantity": 8,
+        "price": "630.00",
+        "summary": "Recycled",
+        "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality"
+      }
+    ]
+  },
+  {
+    "name": "Shoes",
+    "slug": "shoes",
+    "products": [
+      {
+        "name": "Ergonomic Cotton Soap",
+        "slug": "ergonomic-cotton-soap",
+        "color": "#2a7520",
+        "image": "https://loremflickr.com/1280/300/fashion?lock=68091",
+        "quantity": 7,
+        "price": "774.00",
+        "summary": "Intelligent",
+        "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality"
+      },
+      {
+        "name": "Licensed Metal Salad",
+        "slug": "licensed-metal-salad",
+        "color": "#c4be3e",
+        "image": "https://loremflickr.com/1280/300/fashion?lock=35540",
+        "quantity": 5,
+        "price": "527.00",
+        "summary": "Tasty",
+        "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart"
+      }
+    ]
+  },
+  {
+    "name": "Computers",
+    "slug": "computers",
+    "products": [
+      {
+        "name": "Luxurious Soft Pizza",
+        "slug": "luxurious-soft-pizza",
+        "color": "#adf7b1",
+        "image": "https://loremflickr.com/1280/300/fashion?lock=61948",
+        "quantity": 3,
+        "price": "334.00",
+        "summary": "Recycled",
+        "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support"
+      },
+      {
+        "name": "Bespoke Frozen Fish",
+        "slug": "bespoke-frozen-fish",
+        "color": "#dd7e67",
+        "image": "https://loremflickr.com/1280/300/fashion?lock=49784",
+        "quantity": 2,
+        "price": "460.00",
+        "summary": "Gorgeous",
+        "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016"
+      }
+    ]
+  },
+  {
+    "name": "Movies",
+    "slug": "movies",
+    "products": [
+      {
+        "name": "Practical Rubber Ball",
+        "slug": "practical-rubber-ball",
+        "color": "#d5a0db",
+        "image": "https://loremflickr.com/1280/300/fashion?lock=35731",
+        "quantity": 5,
+        "price": "757.00",
+        "summary": "Electronic",
+        "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016"
+      },
+      {
+        "name": "Recycled Fresh Keyboard",
+        "slug": "recycled-fresh-keyboard",
+        "color": "#c2c452",
+        "image": "https://loremflickr.com/1280/300/fashion?lock=3127",
+        "quantity": 4,
+        "price": "700.00",
+        "summary": "Licensed",
+        "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design"
+      }
+    ]
+  },
+  {
+    "name": "Outdoors",
+    "slug": "outdoors",
+    "products": [
+      {
+        "name": "Ergonomic Metal Salad",
+        "slug": "ergonomic-metal-salad",
+        "color": "#ca9afd",
+        "image": "https://loremflickr.com/1280/300/fashion?lock=71883",
+        "quantity": 6,
+        "price": "536.00",
+        "summary": "Sleek",
+        "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart"
+      },
+      {
+        "name": "Awesome Frozen Bike",
+        "slug": "awesome-frozen-bike",
+        "color": "#a6d02f",
+        "image": "https://loremflickr.com/1280/300/fashion?lock=19347",
+        "quantity": 6,
+        "price": "507.00",
+        "summary": "Incredible",
+        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J"
+      }
+    ]
+  },
+  {
+    "name": "Kids",
+    "slug": "kids",
+    "products": [
+      {
+        "name": "Small Soft Hat",
+        "slug": "small-soft-hat",
+        "color": "#dfd9c9",
+        "image": "https://loremflickr.com/1280/300/fashion?lock=73645",
+        "quantity": 7,
+        "price": "374.00",
+        "summary": "Luxurious",
+        "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles"
+      },
+      {
+        "name": "Elegant Bronze Computer",
+        "slug": "elegant-bronze-computer",
+        "color": "#c6f571",
+        "image": "https://loremflickr.com/1280/300/fashion?lock=56981",
+        "quantity": 2,
+        "price": "682.00",
+        "summary": "Awesome",
+        "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart"
+      }
+    ]
+  }
+]

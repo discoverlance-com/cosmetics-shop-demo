@@ -1,9 +1,8 @@
 import Image from 'next/image';
+import { getAllCategoriesWithProducts } from '~/lib/products/categories';
 
-import { getAllProductsWithCategory } from '~/lib/products/products';
-
-const ProductsTable = async () => {
-  const products = await getAllProductsWithCategory();
+const CategoriesTable = async () => {
+  const categories = await getAllCategoriesWithProducts();
   return (
     <>
       <div className="relative overflow-x-auto shadow-md sm:rounded">
@@ -14,19 +13,7 @@ const ProductsTable = async () => {
                 Name
               </th>
               <th scope="col" className="px-6 py-3">
-                Category
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Price
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Quantity
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Image
-              </th>
-              <th scope="col" className="px-6 py-3">
-                Summary
+                # of Products
               </th>
               <th scope="col" className="px-6 py-3">
                 <span className="sr-only">Actions</span>
@@ -34,36 +21,23 @@ const ProductsTable = async () => {
             </tr>
           </thead>
           <tbody>
-            {products.length > 1 ? (
-              products.map((product) => (
+            {categories.length > 1 ? (
+              categories.map((category) => (
                 <tr
-                  key={product.slug}
+                  key={category.slug}
                   className="bg-blue-700 border-b hover:bg-blue-600"
                 >
                   <th
                     scope="row"
                     className="px-6 py-4 font-medium text-gray-100 whitespace-nowrap "
                   >
-                    {product.name}
+                    {category.name}
                   </th>
                   <td className="px-6 py-4">
                     <span className="py-2 px-2 bg-gray-100 rounded text-gray-700">
-                      {product.category?.name}
+                      {category._count.products}
                     </span>
                   </td>
-                  <td className="px-6 py-4">$ {product.price.toString()}</td>
-                  <td className="px-6 py-4">{product.quantity}</td>
-                  <td className="px-6 py-4">
-                    {product.image && (
-                      <Image
-                        alt={product.name}
-                        src={product?.image}
-                        height={20}
-                        width={20}
-                      />
-                    )}
-                  </td>
-                  <td className="px-6 py-4">{product.summary}</td>
                   <td className="px-6 py-4 flex gap-2 flex-wrap text-right">
                     <a
                       href="#"
@@ -82,8 +56,8 @@ const ProductsTable = async () => {
               ))
             ) : (
               <tr className="bg-blue-700 border-b hover:bg-blue-600">
-                <td colSpan={7} className="px-6 py-4 text-white">
-                  No Product added yet
+                <td colSpan={3} className="px-6 py-4 text-white">
+                  No Product category added yet
                 </td>
               </tr>
             )}
@@ -94,4 +68,4 @@ const ProductsTable = async () => {
   );
 };
 
-export default ProductsTable;
+export default CategoriesTable;

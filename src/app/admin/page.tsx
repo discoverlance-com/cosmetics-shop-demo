@@ -1,11 +1,16 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
+
 import ProductMetrics from './ProductMetrics';
+import { getAllProducts } from '~/lib/products/products';
 
 export const metadata: Metadata = {
   title: 'Admin - My Cosmetics',
 };
 
-export default function Page() {
+export default async function Page() {
+  const products = await getAllProducts();
+
   return (
     <>
       <h1 className="font-bold text-4xl mb-8">Welcome</h1>
@@ -19,7 +24,9 @@ export default function Page() {
           </div>
         </div>
 
-        <ProductMetrics />
+        <Suspense fallback={<p>Loading...</p>}>
+          <ProductMetrics products={products} />
+        </Suspense>
       </div>
     </>
   );
