@@ -19,7 +19,18 @@ const cardVariants: Variants = {
   },
 };
 
-type ProductData = Pick<Product, 'name' | 'image' | 'summary'> & {
+type ProductData = Omit<
+  Product,
+  | 'updatedAt'
+  | 'createdAt'
+  | 'category_id'
+  | 'id'
+  | 'price'
+  | 'slug'
+  | 'description'
+  | 'quantity'
+  | 'color'
+> & {
   price: string;
 };
 
