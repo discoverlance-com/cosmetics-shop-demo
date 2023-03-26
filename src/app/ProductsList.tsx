@@ -12,7 +12,12 @@ const ProductsList = (props: Props) => {
     <ul className="grid sm:grid-cols-2 grid-cols-1 gap-8 lg:grid-cols-3">
       {props.products.map((product) => (
         <li key={product.slug}>
-          <ProductItem {...product} />
+          <ProductItem
+            name={product.name}
+            summary={product.summary}
+            price={product.price}
+            image={product.image}
+          />
         </li>
       ))}
     </ul>
