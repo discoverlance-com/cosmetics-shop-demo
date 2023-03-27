@@ -29,7 +29,7 @@ const ProductsList = (props: Props) => {
           </li>
         ))
       ) : (
-        <p className="text-xl mt-8">
+        <p className="text-xl mt-8 col-span-full">
           No products added yet. Please visit at another time
         </p>
       )}
