@@ -28,7 +28,9 @@ const ProductMetrics = (props: Props) => {
     {
       label: '# of Products',
       data: props.products.map((product) => product.quantity),
-      backgroundColor: props.products.map((product) => product.color),
+      backgroundColor: props.products.map((product) =>
+        product.color ? product.color : '',
+      ),
       borderWidth: 1,
     },
   ];
