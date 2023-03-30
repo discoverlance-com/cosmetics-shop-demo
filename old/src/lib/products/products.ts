@@ -1,6 +1,8 @@
+import { cache } from 'react';
+
 import prisma from '~/lib/prisma';
 
-export const getAllProducts = async () => {
+export const getAllProducts = cache(async () => {
   return await prisma.product.findMany({
     select: {
       name: true,
@@ -13,9 +15,9 @@ export const getAllProducts = async () => {
       description: true,
     },
   });
-};
+});
 
-export const getAllProductsWithCategory = async () => {
+export const getAllProductsWithCategory = cache(async () => {
   return await prisma.product.findMany({
     select: {
       name: true,
@@ -34,4 +36,4 @@ export const getAllProductsWithCategory = async () => {
       },
     },
   });
-};
+});

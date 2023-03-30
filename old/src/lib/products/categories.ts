@@ -1,6 +1,8 @@
+import { cache } from 'react';
+
 import prisma from '~/lib/prisma';
 
-export const getAllCategories = async () => {
+export const getAllCategories = cache(async () => {
   return await prisma.category.findMany({
     select: {
       name: true,
@@ -8,9 +10,9 @@ export const getAllCategories = async () => {
       _count: { select: { products: true } },
     },
   });
-};
+});
 
-export const getAllCategoriesWithProducts = async () => {
+export const getAllCategoriesWithProducts = cache(async () => {
   return await prisma.category.findMany({
     select: {
       name: true,
@@ -29,4 +31,4 @@ export const getAllCategoriesWithProducts = async () => {
       },
     },
   });
-};
+});

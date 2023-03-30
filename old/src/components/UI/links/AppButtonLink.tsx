@@ -12,6 +12,7 @@ interface Props
     'href'
   > {
   to: string;
+  variant?: 'default' | 'blue';
 }
 
 const AppButtonLink = forwardRef<HTMLAnchorElement, Props>((props, ref) => {
@@ -19,8 +20,12 @@ const AppButtonLink = forwardRef<HTMLAnchorElement, Props>((props, ref) => {
   return (
     <Link
       href={to}
-      className={`bg-white px-4 py-2 rounded text-gray-700 shadow shadow-white/50 transition-all duration-300 hover:translate-y-1 hover:rounded-none focus:ring-4 focus:ring-blue-200 outline-none focus:outline-none  ${
+      className={`px-4 py-2 rounded  shadow shadow-white/50 transition-all duration-300 hover:translate-y-1 hover:rounded-none focus:ring-4 focus:ring-blue-200 outline-none focus:outline-none  ${
         className ?? ''
+      }  ${
+        !props.variant || props.variant === 'default'
+          ? `bg-white text-gray-700`
+          : 'bg-blue-700 text-gray-100'
       }`}
       {...rest}
       ref={ref}
