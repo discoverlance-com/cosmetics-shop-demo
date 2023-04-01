@@ -1,17 +1,11 @@
+<script>
+	import Products from '$components/pages/Home/Products.svelte';
+</script>
+
 <svelte:head>
 	<title>Home - My Cosmetics</title>
 	<meta name="description" content="Demo Cosmetics website." />
 </svelte:head>
-
-<!-- <header
-	class="flex items-center justify-center bg-hero-image bg-no-repeat bg-cover w-full h-96 relative rounded"
->
-	<div class="absolute inset-0" />
-	<h1 class="font-bold text-center text-blue-700">
-		<span class="text-5xl">Welcome to</span>
-		<span class="tracking-wider block text-7xl pt-2 uppercase"> My Cosmetics </span>
-	</h1>
-</header> -->
 
 <header>
 	<h1 class="font-bold text-center text-white mb-8">
@@ -27,3 +21,10 @@
 		alt="Nail Polish samples"
 	/>
 </header>
+
+<section class="my-16">
+	<h2 class="font-bold text-white text-4xl">Our Products</h2>
+	<p class="text-white mb-8">View our products</p>
+
+	<Products />
+</section>

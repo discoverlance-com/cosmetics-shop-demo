@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import TwitterIcon from 'svelte-icons/fa/FaTwitter.svelte';
 	import LinkedInIcon from 'svelte-icons/fa/FaLinkedin.svelte';
 	import GithubIcon from 'svelte-icons/fa/FaGithub.svelte';
@@ -23,6 +23,7 @@
 				<a
 					href="https://twitter.com/DiscoverLance"
 					target="_blank"
+					rel="external"
 					class="h-7 w-7 transition-transform hover:translate-y-1 duration-300"
 				>
 					<TwitterIcon />
@@ -32,6 +33,7 @@
 				<a
 					href="https://www.linkedin.com/in/lance-armah-abraham/"
 					target="_blank"
+					rel="external"
 					class="h-7 w-7 transition-transform hover:translate-y-1 duration-300"
 				>
 					<LinkedInIcon />
@@ -41,6 +43,7 @@
 				<a
 					href="https://github.com/discoverlance-com"
 					target="_blank"
+					rel="external"
 					class="h-7 w-7 transition-transform hover:translate-y-1 duration-300"
 				>
 					<GithubIcon />
