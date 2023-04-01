@@ -40,8 +40,9 @@
 		"vitest": "^0.25.3"
 	},
 	"dependencies": {
-		"svelte-icons": "^2.1.0",
-		"@prisma/client": "4.11.0"
+		"@prisma/client": "4.11.0",
+		"svelte-frappe-charts": "^1.10.0",
+		"svelte-icons": "^2.1.0"
 	},
 	"type": "module",
 	"engines": {
