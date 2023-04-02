@@ -41,6 +41,6 @@ model Product {
 
   category Category? @relation(fields: [category_id], references: [id], onDelete: SetNull)
 
-  @@index([category_id])
+  @@index([category_id, slug])
   @@map(name: "products")
 }

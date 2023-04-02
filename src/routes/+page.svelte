@@ -1,7 +1,11 @@
-<script>
+<script lang="ts">
+	import type { PageData } from './$types';
+
 	import Products from '$components/pages/Home/Products.svelte';
 	import PrimaryNavigation from '$components/Layout/PrimaryNavigation.svelte';
 	import PrimaryFooter from '$components/Layout/PrimaryFooter.svelte';
+
+	export let data: PageData;
 </script>
 
 <svelte:head>
@@ -32,7 +36,7 @@
 			<h2 class="font-bold text-white text-4xl">Our Products</h2>
 			<p class="text-white mb-8">View our products</p>
 
-			<Products />
+			<Products products={data.products} cursor={data.cursor} isDone={data.isDone} />
 		</section>
 	</main>
 

@@ -1,7 +1,16 @@
 import { faker } from '@faker-js/faker';
 import fs from 'fs';
 import path from 'path';
-import { slugify } from '$lib/utils/string-helpers';
+const slugify = (...args: (string | number)[]): string => {
+	const value = args.join(' ');
+	return value
+		.normalize('NFD') // split an accented letter in the base letter and the acent
+		.replace(/[\u0300-\u036f]/g, '') // remove all previously split accents
+		.toLowerCase()
+		.trim()
+		.replace(/[^a-z0-9 ]/g, '') // remove all chars not letters, numbers and spaces (to be replaced)
+		.replace(/\s+/g, '-'); // separator
+};
 
 const generateData = () => {
 	const categories = [
@@ -34,7 +43,7 @@ const generateData = () => {
 	];
 
 	try {
-		const dir = path.resolve(__dirname, './products.json');
+		const dir = path.resolve(process.cwd(), 'prisma/seed-data/products.json');
 		fs.writeFileSync(dir, JSON.stringify(categories, null, 2), {
 			encoding: 'utf-8'
 		});

@@ -1,6 +1,7 @@
 <script lang="ts">
 	export let href: string;
 	export let variant = 'default';
+	export let noScroll = false;
 </script>
 
 <a
@@ -10,6 +11,7 @@
 	class:text-gray-100={variant === 'inverted'}
 	class:bg-white={variant === 'default'}
 	class:text-gray-700={variant === 'default'}
+	data-sveltekit-noscroll={noScroll ? '' : 'off'}
 >
 	<slot />
 </a>

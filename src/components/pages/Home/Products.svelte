@@ -1,10 +1,15 @@
-<script>
-	import AppButton from '$components/UI/button/AppButton.svelte';
+<script lang="ts">
+	import { navigating } from '$app/stores';
+	import type { Product } from '@prisma/client';
+
+	import AppButtonLink from '$components/UI/links/AppButtonLink.svelte';
 	import ProductItem from './ProductItem.svelte';
 
-	function handleLoadMore() {
-		console.log('Loading more products...');
-	}
+	export let products: (Pick<Product, 'name' | 'quantity' | 'slug' | 'image' | 'summary'> & {
+		price: string;
+	})[];
+	export let cursor: string;
+	export let isDone = false;
 </script>
 
 <div>
@@ -13,15 +18,25 @@
 		<!-- <p class="text-xl mt-8 col-span-full">
 			No products added yet. Please visit at another time
 		</p> -->
-		<ProductItem
-			name="Product 1"
-			price="0.00"
-			summary="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel natus atque magni laborum, magnam omnis amet!"
-			image="/images/bg-hero.jpg"
-		/>
+		{#each products as product}
+			<ProductItem
+				name={product.name}
+				price={product.price}
+				summary={product.summary}
+				image={product.image}
+			/>
+		{/each}
 	</ul>
 
 	<div class="mt-16 flex">
-		<AppButton on:click={handleLoadMore}>Load More</AppButton>
+		{#if !isDone}
+			<AppButtonLink href={`/?next=${cursor}`} noScroll>
+				{#if $navigating}
+					Loading...
+				{:else}
+					Loading More
+				{/if}
+			</AppButtonLink>
+		{/if}
 	</div>
 </div>
