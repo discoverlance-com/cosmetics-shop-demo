@@ -15,17 +15,20 @@
 <div>
 	<!-- List -->
 	<ul class="grid sm:grid-cols-2 grid-cols-1 gap-8 lg:grid-cols-3">
-		<!-- <p class="text-xl mt-8 col-span-full">
-			No products added yet. Please visit at another time
-		</p> -->
-		{#each products as product}
-			<ProductItem
-				name={product.name}
-				price={product.price}
-				summary={product.summary}
-				image={product.image}
-			/>
-		{/each}
+		{#if products.length > 0}
+			{#each products as product}
+				<ProductItem
+					name={product.name}
+					price={product.price}
+					summary={product.summary}
+					image={product.image}
+				/>
+			{/each}
+		{:else}
+			<p class="text-xl text-white mt-8 col-span-full">
+				No products added yet. Please visit at another time
+			</p>
+		{/if}
 	</ul>
 
 	<div class="mt-16 flex">
