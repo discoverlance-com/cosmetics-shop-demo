@@ -12,9 +12,7 @@ const config = {
 		alias: {
 			'$components/*': './src/components'
 		},
-		adapter: adapter({
-			runtime: 'nodejs16.x'
-		})
+		adapter: adapter({})
 	}
 };
 
