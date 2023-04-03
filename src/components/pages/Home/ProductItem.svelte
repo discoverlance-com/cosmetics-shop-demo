@@ -24,10 +24,4 @@
 			US$ {price}
 		</span>
 	</p>
-
-	<!-- <div class="mt-4">
-		<AppModal title={`Order ${name}`} trigger="Order">
-			<p>Thanks for ordering</p>
-		</AppModal>
-	</div> -->
 </div>
