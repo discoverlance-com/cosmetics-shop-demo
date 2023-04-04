@@ -1,12 +1,29 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { navigating } from '$app/stores';
+	import { navigation } from '$store/navigation';
+	import { clickOutside } from '$utils/clickOutside';
+
 	import DashboardIcon from 'svelte-icons/fa/FaDashcube.svelte';
 	import BriefCaseIcon from 'svelte-icons/fa/FaBriefcase.svelte';
+	import { afterUpdate } from 'svelte';
+
+	console.log({ navigation: $navigation });
+
+	afterUpdate(() => {
+		if ($navigating && $navigation.open) {
+			$navigation.open = false;
+		}
+	});
 </script>
 
 <aside
 	id="logo-sidebar"
-	class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-blue-700 border-r border-blue-200 sm:translate-x-0"
+	class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full duration-300 bg-blue-700 border-r border-blue-200 sm:translate-x-0"
+	class:translate-x-0={$navigation.open === true}
+	use:clickOutside={() => {
+		$navigation.open = false;
+	}}
 	aria-label="Sidebar"
 >
 	<div class="h-full px-3 pb-4 overflow-y-auto bg-blue-700">

@@ -1,5 +1,6 @@
 // lib/prisma.ts
-import { PrismaClient } from '@prisma/client/edge';
+import { PrismaClient as PrismaEdgeClient } from '@prisma/client/edge';
+import { PrismaClient } from '@prisma/client';
 
 declare global {
 	var prisma: PrismaClient | undefined;
@@ -8,7 +9,7 @@ declare global {
 let prisma: PrismaClient;
 
 if (process.env.NODE_ENV === 'production') {
-	prisma = new PrismaClient();
+	prisma = new PrismaEdgeClient();
 } else {
 	if (!global.prisma) {
 		global.prisma = new PrismaClient({ log: ['query'] });

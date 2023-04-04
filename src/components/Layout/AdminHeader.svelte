@@ -1,9 +1,10 @@
 <script lang="ts">
+	import { navigation } from '$store/navigation';
 	import AppButtonLink from '$components/UI/links/AppButtonLink.svelte';
 </script>
 
 <header class="fixed top-0 z-50 w-full bg-blue-700 border-b border-blue-200">
-	<div class="px-34 py-3 lg:p-4">
+	<div class="p-3 lg:p-4">
 		<div class="flex items-center justify-between">
 			<div class="flex items-center justify-start">
 				<button
@@ -11,6 +12,7 @@
 					data-drawer-toggle="logo-sidebar"
 					aria-controls="logo-sidebar"
 					type="button"
+					on:click={() => ($navigation.open = !$navigation.open)}
 					class="inline-flex items-center p-2 text-sm text-gray-100 rounded-lg md:hidden hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-200"
 				>
 					<span class="sr-only">Open sidebar</span>
