@@ -1,12 +1,15 @@
-<script>
+<script lang="ts">
 	//@ts-nocheck
 	import Chart from 'svelte-frappe-charts';
+	import type { PageData } from './$types';
 
-	let data = {
-		labels: ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'],
+	export let data: PageData;
+
+	let chartData = {
+		labels: data.products.map((product) => product.name),
 		datasets: [
 			{
-				values: [10, 12, 3, 9, 8, 15, 9]
+				values: data.products.map((product) => product.quantity)
 			}
 		]
 	};
@@ -21,11 +24,16 @@
 	<div class="grid grid-cols-2 md:grid-cols-3 gap-8">
 		<div class="p-4 h-24 rounded bg-blue-50 leading-8">
 			<p class="text-2xl font-semibold text-gray-500">Total Products</p>
-			<p class="font-bold text-xl">200</p>
+			<p class="font-bold text-xl">{data.productsCount}</p>
 		</div>
 	</div>
 
 	<div>
-		<Chart {data} type="line" />
+		<Chart
+			data={chartData}
+			type="line"
+			title="Products and Quantity"
+			colors={['rgb(37,99,235)', 'rgb(29,78,216)']}
+		/>
 	</div>
 </div>

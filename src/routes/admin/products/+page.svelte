@@ -1,5 +1,10 @@
-<script>
+<script lang="ts">
 	import AppButtonLink from '$components/UI/links/AppButtonLink.svelte';
+	import ProductsTable from '$components/pages/Products/ProductsTable.svelte';
+
+	import type { PageData } from './$types';
+
+	export let data: PageData;
 </script>
 
 <svelte:head>
@@ -13,5 +18,5 @@
 		<AppButtonLink href="/admin/products/create" variant="inverted">Create</AppButtonLink>
 	</div>
 
-	<!-- <ProductsTable /> -->
+	<ProductsTable data={data.products} />
 </div>

@@ -8,8 +8,6 @@
 	import BriefCaseIcon from 'svelte-icons/fa/FaBriefcase.svelte';
 	import { afterUpdate } from 'svelte';
 
-	console.log({ navigation: $navigation });
-
 	afterUpdate(() => {
 		if ($navigating && $navigation.open) {
 			$navigation.open = false;
