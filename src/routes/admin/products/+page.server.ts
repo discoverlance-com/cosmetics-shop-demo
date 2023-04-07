@@ -1,5 +1,10 @@
 import type { PageServerLoad } from './$types';
 import prisma from '$lib/prisma';
+import type { Config } from '@sveltejs/adapter-vercel';
+
+export const config: Config = {
+	runtime: 'edge'
+};
 
 const getProducts = async (next: string, perPage: string) => {
 	return await prisma.product.findMany({
