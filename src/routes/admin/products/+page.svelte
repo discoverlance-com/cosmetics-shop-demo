@@ -18,5 +18,5 @@
 		<AppButtonLink href="/admin/products/create" variant="inverted">Create</AppButtonLink>
 	</div>
 
-	<ProductsTable data={data.products} />
+	<ProductsTable data={data.products} previousPage={data.previousPage} nextPage={data.nextPage} />
 </div>
