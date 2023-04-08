@@ -1,11 +1,14 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import type { Product, Category } from '@prisma/client/edge';
+	import type { Product, Category } from '@prisma/client';
 
 	export let data: (Pick<Product, 'name' | 'image' | 'slug' | 'summary' | 'quantity'> & {
 		category: Pick<Category, 'name'> | null;
 		price: string;
 	})[];
+
+	export let nextPage: number | null;
+	export let previousPage: number | null;
 </script>
 
 <div class="relative overflow-x-auto shadow-md sm:rounded">
@@ -67,15 +70,15 @@
 </div>
 
 <div class="flex justify-end items-center gap-8">
-	{#if $page.data.previousPage !== null}
+	{#if previousPage !== null}
 		<a
 			class="bg-blue-400 text-white shadow shadow-blue-400 px-4 text-base hover:bg-blue-600 py-2"
-			href={`${$page.url.pathname}?next=${$page.data.previousPage}`}>Previous</a
+			href={`${$page.url.pathname}?next=${previousPage}`}>Previous</a
 		>
 	{/if}
-	{#if $page.data.nextPage !== null}
+	{#if nextPage !== null}
 		<a
-			href={`${$page.url.pathname}?next=${$page.data.nextPage}`}
+			href={`${$page.url.pathname}?next=${nextPage}`}
 			class="bg-blue-400 text-white shadow shadow-blue-400 px-4 text-base hover:bg-blue-600 py-2"
 			>Next</a
 		>

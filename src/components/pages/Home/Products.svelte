@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { navigating } from '$app/stores';
-	import type { Product } from '@prisma/client/edge';
+	import type { Product } from '@prisma/client';
 
 	import AppButtonLink from '$components/UI/links/AppButtonLink.svelte';
 	import ProductItem from './ProductItem.svelte';
