@@ -1,5 +1,6 @@
 // lib/prisma.ts
 import { PrismaClient as PrismaEdgeClient } from '@prisma/client/edge';
+import { env } from '$env/dynamic/private';
 
 declare global {
 	var prisma: PrismaEdgeClient | undefined;
@@ -11,8 +12,14 @@ if (process.env.NODE_ENV === 'production') {
 	prisma = new PrismaEdgeClient();
 } else {
 	if (!global.prisma) {
-		const { PrismaClient } = await import('@prisma/client');
-		global.prisma = new PrismaClient({ log: ['query'] });
+		global.prisma = new PrismaEdgeClient({
+			log: ['query'],
+			datasources: {
+				db: {
+					url: env.DATABASE_URL
+				}
+			}
+		});
 	}
 	prisma = global.prisma;
 }

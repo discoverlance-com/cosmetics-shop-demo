@@ -6,9 +6,9 @@
 
 	import DashboardIcon from 'svelte-icons/fa/FaDashcube.svelte';
 	import BriefCaseIcon from 'svelte-icons/fa/FaBriefcase.svelte';
-	import { afterUpdate } from 'svelte';
+	import { beforeUpdate } from 'svelte';
 
-	afterUpdate(() => {
+	beforeUpdate(() => {
 		if ($navigating && $navigation.open) {
 			$navigation.open = false;
 		}
