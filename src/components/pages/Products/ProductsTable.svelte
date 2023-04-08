@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import type { Product, Category } from '@prisma/client';
+	import type { Product, Category } from '@prisma/client/edge';
 
 	export let data: (Pick<Product, 'name' | 'image' | 'slug' | 'summary' | 'quantity'> & {
 		category: Pick<Category, 'name'> | null;
