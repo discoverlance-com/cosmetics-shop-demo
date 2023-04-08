@@ -11,7 +11,8 @@ if (process.env.NODE_ENV === 'production') {
 	prisma = new PrismaEdgeClient();
 } else {
 	if (!global.prisma) {
-		global.prisma = new PrismaEdgeClient({ log: ['query'] });
+		const { PrismaClient } = await import('@prisma/client');
+		global.prisma = new PrismaClient({ log: ['query'] });
 	}
 	prisma = global.prisma;
 }
