@@ -1,5 +1,5 @@
 // lib/prisma.ts
-import { PrismaClient as PrismaEdgeClient } from '@prisma/client/edge';
+import { PrismaClient as PrismaEdgeClient } from '@prisma/client';
 import { env } from '$env/dynamic/private';
 
 declare global {
