@@ -1,5 +1,5 @@
-// import adapter from '@sveltejs/adapter-cloudflare';
-import adapter from '@sveltejs/adapter-vercel';
+import adapter from '@sveltejs/adapter-cloudflare';
+// import adapter from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -14,7 +14,12 @@ const config = {
 			'$store/*': './src/store',
 			'$utils/*': './src/utils'
 		},
-		adapter: adapter({})
+		adapter: adapter({
+			routes: {
+				include: ['/*'],
+				exclude: ['<all>']
+			}
+		})
 	}
 };
 
