@@ -6,8 +6,8 @@ export const config: Config = {
 	runtime: 'edge'
 };
 
-const getProducts = async (next: string, perPage: string) => {
-	return await prisma.product.findMany({
+const getCategories = async (next: string, perPage: string) => {
+	return await prisma.category.findMany({
 		skip: Number(next),
 		take: Number(perPage),
 		orderBy: {
@@ -15,16 +15,10 @@ const getProducts = async (next: string, perPage: string) => {
 		},
 		select: {
 			name: true,
-			quantity: true,
-			category: {
-				select: {
-					name: true
-				}
-			},
-			image: true,
-			summary: true,
-			price: true,
-			slug: true
+			slug: true,
+			_count: {
+				select: { products: true }
+			}
 		}
 	});
 };
@@ -52,12 +46,12 @@ export const load = (async ({ url }) => {
 	}
 
 	const [data, count] = await Promise.all([
-		await getProducts(next, perPage),
-		await prisma.product.count()
+		await getCategories(next, perPage),
+		await prisma.category.count()
 	]);
 
 	return {
-		products: data.map((product) => ({ ...product, price: product.price.toString() })),
+		categories: data,
 		nextPage: Number(next) + Number(perPage) >= count ? null : Number(next) + Number(perPage),
 		previousPage:
 			Number(next) > 0

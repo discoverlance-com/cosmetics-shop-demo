@@ -2,9 +2,10 @@
 	import { page } from '$app/stores';
 	import type { Product, Category } from '@prisma/client';
 
-	export let data: (Pick<Product, 'name' | 'image' | 'slug' | 'summary' | 'quantity'> & {
-		category: Pick<Category, 'name'> | null;
-		price: string;
+	export let data: (Pick<Category, 'name' | 'slug'> & {
+		_count: {
+			products: number;
+		};
 	})[] = [];
 
 	export let nextPage: number | null;
@@ -15,15 +16,11 @@
 
 <div>
 	<div class="relative overflow-x-auto shadow-md sm:rounded">
-		<table class="w-full text-base text-left text-gray-700">
+		<table class="w-full text-base text-left text-gray-300">
 			<thead class="text-sm text-gray-100 uppercase bg-blue-700">
 				<tr>
 					<th scope="col" class="px-6 py-3"> Name </th>
-					<th scope="col" class="px-6 py-3"> Category </th>
-					<th scope="col" class="px-6 py-3"> Price </th>
-					<th scope="col" class="px-6 py-3"> Quantity </th>
-					<th scope="col" class="px-6 py-3"> Image </th>
-					<th scope="col" class="px-6 py-3"> Summary </th>
+					<th scope="col" class="px-6 py-3"> Products </th>
 					<th scope="col" class="px-6 py-3">
 						<span class="sr-only">Actions</span>
 					</th>
@@ -38,23 +35,9 @@
 							</th>
 							<td class="px-6 py-4">
 								<span class="py-2 px-2 bg-gray-300 rounded text-gray-700">
-									{product.category?.name}
+									{product._count.products}
 								</span>
 							</td>
-							<td class="px-6 py-4">$ {product.price.toString()}</td>
-							<td class="px-6 py-4">{product.quantity}</td>
-							<td class="px-6 py-4">
-								{#if product.image}
-									<img
-										alt={product.name}
-										src={product?.image}
-										height={40}
-										width={120}
-										class="object-center h-10"
-									/>
-								{/if}
-							</td>
-							<td class="px-6 py-4 text-sm">{product.summary}</td>
 							<td class="px-6 py-4 flex gap-2 flex-wrap text-right">
 								<a href="#" class="font-medium text-gray-700 hover:underline"> Edit </a>
 								<a href="#" class="font-medium text-gray-700 hover:underline"> Delete </a>
@@ -62,9 +45,9 @@
 						</tr>
 					{/each}
 				{:else}
-					<tr class="bg-blue-100 border-b hover:bg-blue-200">
-						<td colSpan={7} class="px-6 py-4 text-gray-700 text-center">
-							No Product matches the current filter
+					<tr class="bg-gray-100 border-b hover:bg-blue-600">
+						<td colSpan={3} class="px-6 py-4 text-gray-700 text-center">
+							No Category matches the current filter
 						</td>
 					</tr>
 				{/if}
