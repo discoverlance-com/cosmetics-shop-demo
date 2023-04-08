@@ -8,7 +8,7 @@
 	export let products: (Pick<Product, 'name' | 'quantity' | 'slug' | 'image' | 'summary'> & {
 		price: string;
 	})[];
-	export let cursor: string;
+	export let cursor: number;
 	export let isDone = false;
 </script>
 
