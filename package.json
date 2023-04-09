@@ -44,6 +44,7 @@
 	},
 	"dependencies": {
 		"@prisma/client": "4.11.0",
+		"@sindresorhus/slugify": "^2.2.0",
 		"svelte-frappe-charts": "^1.10.0",
 		"svelte-icons": "^2.1.0"
 	},

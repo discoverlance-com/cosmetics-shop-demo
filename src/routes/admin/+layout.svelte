@@ -13,7 +13,7 @@
 	<AdminSidebar />
 	<!-- Main Page Content -->
 	<main class="p-4 sm:ml-64 text-gray-700">
-		<div class="pr-4 pl-4 pt-4 mt-14 pb-12">
+		<div class="pr-4 pl-4 pt-4 mt-14 pb-24">
 			<slot />
 		</div>
 	</main>
