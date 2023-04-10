@@ -22,13 +22,15 @@
 	export let step: string | undefined = undefined;
 	export let pattern: string | undefined = undefined;
 	export let helperText: string | undefined = undefined;
-	export let defaultValue: string | null | undefined | FormDataEntryValue = '';
+	export let defaultValue: string | number | null | undefined | FormDataEntryValue = '';
+	export let disabled: boolean | undefined = undefined;
 </script>
 
 <div class="mb-6 space-y-2">
 	<label for={id || name} class="block">{label} {required ? '*' : ''}</label>
 	<input
 		{required}
+		{disabled}
 		{pattern}
 		value={defaultValue}
 		{step}

@@ -9,19 +9,19 @@
 
 	export let form: ActionData;
 	export let data: PageData;
-	let creating = false;
+	let updating = false;
 </script>
 
 <svelte:head>
-	<title>Create Product - My Cosmetics</title>
+	<title>Edit Product - My Cosmetics</title>
 </svelte:head>
 
-<div id="form-container">
+<div>
 	<div class="flex justify-between items-center mb-2">
-		<h1 class="font-bold text-4xl">Create Product</h1>
+		<h1 class="font-bold text-4xl">Edit Product</h1>
 	</div>
 
-	<p>Fill in the details to create a product</p>
+	<p>Update product</p>
 
 	<div class="mt-8 max-w-xl">
 		{#if form?.error || form?.missing || form?.incorrect}
@@ -33,13 +33,13 @@
 		<form
 			method="POST"
 			use:enhance={() => {
-				creating = true;
+				updating = true;
 
-				return async ({ update, result, form }) => {
+				return async ({ update, result }) => {
 					await update();
-					creating = false;
+					updating = false;
+
 					if (result.type === 'failure') {
-						console.log(result?.data);
 						document.getElementById('form-container')?.scrollIntoView();
 					}
 				};
@@ -51,8 +51,8 @@
 				id="name"
 				label="Name"
 				required
-				defaultValue={form?.name}
-				disabled={creating}
+				defaultValue={form?.name || data.product.name}
+				disabled={updating}
 			/>
 
 			<AppInput
@@ -62,8 +62,8 @@
 				label="Quantity"
 				required
 				min={1}
-				defaultValue={form?.quantity}
-				disabled={creating}
+				defaultValue={form?.quantity || data.product.quantity}
+				disabled={updating}
 			/>
 			<AppInput
 				name="price"
@@ -73,16 +73,16 @@
 				label="Price (USD)"
 				required
 				min={1}
-				defaultValue={form?.price}
-				disabled={creating}
+				defaultValue={form?.price || data.product.price}
+				disabled={updating}
 			/>
 			<AppInput
 				name="color"
 				type="color"
 				id="color"
 				label="Color"
-				defaultValue={form?.color}
-				disabled={creating}
+				defaultValue={form?.color || data.product.color}
+				disabled={updating}
 			/>
 
 			<AppSelectInput
@@ -90,11 +90,11 @@
 				id="category"
 				label="Product category"
 				required
-				disabled={creating}
+				disabled={updating}
 			>
 				<option value=""> --- Select an option --- </option>
 				{#each data.categories as category}
-					{#if form?.category === category.slug}
+					{#if form?.category === category.slug || category.slug === data.product.category?.slug}
 						<option value={category.slug} selected>{category.name}</option>
 					{:else}
 						<option value={category.slug}>{category.name}</option>
@@ -109,14 +109,14 @@
 				required
 				maxlength={165}
 				helperText="Give simple description of the product"
-				defaultValue={form?.summary}
-				disabled={creating}
+				defaultValue={form?.summary || data.product.summary}
+				disabled={updating}
 			/>
 
 			<div class="mt-6">
-				<AppButton type="submit" variant="inverted" disabled={creating}
-					>{creating ? 'Submitting' : 'Submit'}</AppButton
-				>
+				<AppButton type="submit" variant="inverted" disabled={updating}>
+					{updating ? 'Submitting...' : 'Submit'}
+				</AppButton>
 			</div>
 		</form>
 	</div>

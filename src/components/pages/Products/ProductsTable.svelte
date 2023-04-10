@@ -1,5 +1,10 @@
 <script lang="ts">
+	//@ts-ignore
+	import PenIcon from 'svelte-icons/fa/FaPenAlt.svelte';
+	import DeleteIcon from 'svelte-icons/fa/FaTrashAlt.svelte';
+
 	import { page } from '$app/stores';
+	import { enhance } from '$app/forms';
 	import type { Product, Category } from '@prisma/client';
 
 	export let data: (Pick<Product, 'name' | 'image' | 'slug' | 'summary' | 'quantity'> & {
@@ -7,10 +12,14 @@
 		price: string;
 	})[] = [];
 
+	$: products = data;
+
 	export let nextPage: number | null;
 	export let previousPage: number | null;
 	export let total: number | null;
 	export let currentPage: string | null;
+
+	let deleting: FormDataEntryValue | null = '';
 </script>
 
 <div>
@@ -30,8 +39,8 @@
 				</tr>
 			</thead>
 			<tbody>
-				{#if data.length > 0}
-					{#each data as product}
+				{#if products.length > 0}
+					{#each products as product}
 						<tr class="bg-gray-100 border-b hover:bg-gray-200 h-10">
 							<th scope="row" class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
 								{product.name}
@@ -55,9 +64,45 @@
 								{/if}
 							</td>
 							<td class="px-6 py-4 text-sm">{product.summary}</td>
-							<td class="px-6 py-4 flex gap-2 flex-wrap text-right">
-								<a href="#" class="font-medium text-gray-700 hover:underline"> Edit </a>
-								<a href="#" class="font-medium text-gray-700 hover:underline"> Delete </a>
+							<td class="px-6 py-4 flex gap-4 flex-wrap text-right">
+								<a
+									href={`/admin/products/${product.slug}/edit`}
+									class="font-medium text-gray-700 hover:underline w-4 h-4 hover:text-blue-700"
+								>
+									<PenIcon />
+									<span class="sr-only">Edit</span>
+								</a>
+								<form
+									method="POST"
+									action="?/delete"
+									use:enhance={({ data }) => {
+										const product = data.get('product');
+										deleting = product;
+
+										return async ({ update, result }) => {
+											await update();
+											if (result.type === 'redirect') {
+												products = products.filter((product) => product.slug !== deleting);
+											}
+											deleting = '';
+										};
+									}}
+								>
+									<input type="hidden" name="product" value={product.slug} />
+									<button
+										type="submit"
+										class="font-medium text-red-700 hover:text-red-800 hover:underline w-4 h-4"
+										class:animate-bounce={deleting === product.slug}
+									>
+										{#if deleting === product.slug}
+											...
+										{:else}
+											<DeleteIcon />
+										{/if}
+
+										<span class="sr-only">Delete</span>
+									</button>
+								</form>
 							</td>
 						</tr>
 					{/each}

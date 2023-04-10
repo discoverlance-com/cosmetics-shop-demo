@@ -1,6 +1,9 @@
 <script lang="ts">
+	//@ts-ignore
+	import PenIcon from 'svelte-icons/fa/FaPenAlt.svelte';
+	import DeleteIcon from 'svelte-icons/fa/FaTrashAlt.svelte';
 	import { page } from '$app/stores';
-	import type { Product, Category } from '@prisma/client';
+	import type { Category } from '@prisma/client';
 
 	export let data: (Pick<Category, 'name' | 'slug'> & {
 		_count: {
@@ -28,19 +31,28 @@
 			</thead>
 			<tbody>
 				{#if data.length > 0}
-					{#each data as product}
+					{#each data as category}
 						<tr class="bg-gray-100 border-b hover:bg-gray-200 h-10">
 							<th scope="row" class="px-6 py-4 font-medium text-gray-700 whitespace-nowrap">
-								{product.name}
+								{category.name}
 							</th>
 							<td class="px-6 py-4">
 								<span class="py-2 px-2 bg-gray-300 rounded text-gray-700">
-									{product._count.products}
+									{category._count.products}
 								</span>
 							</td>
 							<td class="px-6 py-4 flex gap-2 flex-wrap text-right">
-								<a href="#" class="font-medium text-gray-700 hover:underline"> Edit </a>
-								<a href="#" class="font-medium text-gray-700 hover:underline"> Delete </a>
+								<a
+									href={`/admin/products/categories/${category.slug}/edit`}
+									class="font-medium text-gray-700 hover:underline w-4 h-4 hover:text-blue-700"
+								>
+									<PenIcon />
+									<span class="sr-only">Edit</span>
+								</a>
+								<button class="font-medium text-red-700 hover:text-red-800 hover:underline w-4 h-4">
+									<DeleteIcon />
+									<span class="sr-only">Delete</span>
+								</button>
 							</td>
 						</tr>
 					{/each}

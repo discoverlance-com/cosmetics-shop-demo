@@ -1,18 +1,38 @@
 import type { Actions, PageServerLoad } from './$types';
-import { fail, redirect } from '@sveltejs/kit';
+import { fail, redirect, error } from '@sveltejs/kit';
 import { Prisma } from '@prisma/client/edge';
 import slugify from '@sindresorhus/slugify';
 import prisma from '$lib/prisma';
 
-export const load = (async () => {
+export const load = (async ({ params }) => {
+	const { slug } = params;
+	const product = await prisma.product.findUnique({
+		where: { slug },
+		select: {
+			name: true,
+			summary: true,
+			color: true,
+			price: true,
+			image: true,
+			quantity: true,
+			category: { select: { slug: true } }
+		}
+	});
+
+	if (!product) {
+		throw error(404, 'No Product exists with the specified name');
+	}
+
 	const categories = await prisma.category.findMany({ select: { name: true, slug: true } });
+
 	return {
-		categories
+		categories,
+		product: { ...product, price: product?.price.toString() }
 	};
 }) satisfies PageServerLoad;
 
 export const actions = {
-	default: async ({ request }) => {
+	default: async ({ request, params }) => {
 		const data = await request.formData();
 		const name = data.get('name');
 		const category = data.get('category');
@@ -56,8 +76,11 @@ export const actions = {
 		}
 
 		try {
-			// save data
-			await prisma.product.create({
+			// update data
+			await prisma.product.update({
+				where: {
+					slug: params.slug
+				},
 				data: {
 					name,
 					price,

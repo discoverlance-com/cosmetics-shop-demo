@@ -10,6 +10,7 @@
 	export let cols: undefined | number = undefined;
 	export let helperText: string | undefined = undefined;
 	export let defaultValue: string | null | undefined = '';
+	export let disabled: boolean | undefined = undefined;
 </script>
 
 <div class="mb-6 space-y-2">
@@ -19,6 +20,7 @@
 	{/if}
 	<textarea
 		{required}
+		{disabled}
 		value={defaultValue}
 		{name}
 		{maxlength}
